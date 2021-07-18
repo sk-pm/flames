@@ -33,7 +33,7 @@ while proceed:
     b = con_list[str_index + 1:]
 
 count=len(a)+len(b)
-flames=["F","L","A","M","E","S"]
+flames=["FRIENDSHIP","LOVE","AFFECTION","MARRIAGE","ENEMIES","SIBLINGS"]
 while len(flames) > 1:
     split_index = (count % len(flames) - 1)
     if split_index >= 0:
