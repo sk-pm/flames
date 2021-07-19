@@ -10,6 +10,9 @@ a=a.lower().replace(" ","")
 b=b.lower().replace(" ","")
 a=list(a)
 b=list(b)
+len_a=len(a)
+len_b=len(b)
+length=len_a+len_b
 proceed = True
 
 def rem_dup(a, b):
@@ -31,16 +34,20 @@ while proceed:
     str_index = con_list.index('*')
     a = con_list[:str_index]
     b = con_list[str_index + 1:]
-
-count=len(a)+len(b)
-flames=["FRIENDSHIP","LOVE","AFFECTION","MARRIAGE","ENEMIES","SIBLINGS"]
-while len(flames) > 1:
-    split_index = (count % len(flames) - 1)
-    if split_index >= 0:
-        right = flames[split_index + 1:]
-        left = flames[:split_index]
-        flames = right + left
+try:
+    if (st.button("FLAMES") and length!=0 ):
+        count=len(a)+len(b)
+        flames=["FRIENDSHIP","LOVE","AFFECTION","MARRIAGE","ENEMIES","SIBLINGS"]
+        while len(flames) > 1:
+            split_index = (count % len(flames) - 1)
+            if split_index >= 0:
+                right = flames[split_index + 1:]
+                left = flames[:split_index]
+                flames = right + left
+            else:
+                flames = flames[:len(flames) - 1]
+        st.success("You are Relation is: {}".format(flames))
     else:
-        flames = flames[:len(flames) - 1]
-if (st.button("FLAMES")):
-    st.success("You are Relation is: {}".format(flames))
+        st.text("Above fields can not be blank")
+except:
+    st.text("Above fields can not be blank")
